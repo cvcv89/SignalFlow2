@@ -17,13 +17,13 @@ public class MouseSelectionController : MonoBehaviour
     void Update()
     {
        if (Input.GetMouseButtonDown(0) && !gameManager.guiUp)
-       {
+        {      // creates ray and fires it at objects 
             RaycastHit raycastHit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out raycastHit, 100f))
             {
                 if(raycastHit.transform != null && !raycastHit.transform.CompareTag("Untagged"))
-                {
+                {     // if the ray hits something that tagged 
                     clickedObject = raycastHit.transform.gameObject;
                     if (clickedObject.CompareTag("StereoCable") && !cableSelected)
                     {
